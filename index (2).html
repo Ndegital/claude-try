@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>福岡旅行プランナー</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+  <h1>福岡旅行プランナー</h1>
+  <div class="steps">
+    <span class="step-indicator active" data-step="1">1.条件入力</span>
+    <span class="step-indicator" data-step="2">2.観光地選択</span>
+    <span class="step-indicator" data-step="3">3.宿泊施設選択</span>
+    <span class="step-indicator" data-step="4">4.スケジュール</span>
+  </div>
+
+  <!-- Step 1: 入力 -->
+  <section id="step1" class="step-section active">
+    <h2>旅行の条件を入力してください</h2>
+    <div class="form-group">
+      <label for="nights">宿泊日数（泊）</label>
+      <input type="number" id="nights" min="0" max="10" value="1">
+    </div>
+    <div class="form-group">
+      <label for="budget">宿泊予算（円・全体）</label>
+      <input type="number" id="budget" min="0" step="1000" value="20000">
+    </div>
+    <button class="btn-primary" id="toStep2">観光地候補を見る</button>
+  </section>
+
+  <!-- Step 2: 観光地選択 -->
+  <section id="step2" class="step-section">
+    <h2>福岡県のおすすめ観光地</h2>
+    <p class="hint">行きたい観光地を選んでください（複数選択可）</p>
+    <div id="spotList" class="card-list"></div>
+    <div class="nav-buttons">
+      <button class="btn-secondary" id="backToStep1">戻る</button>
+      <button class="btn-primary" id="toStep3">宿泊施設候補を見る</button>
+    </div>
+  </section>
+
+  <!-- Step 3: 宿泊施設選択 -->
+  <section id="step3" class="step-section">
+    <h2>宿泊施設の候補</h2>
+    <p class="hint">利用したい宿泊施設を選んでください（複数選択可・1泊ごとに順番に割り当てます）</p>
+    <div id="hotelList" class="card-list"></div>
+    <div class="nav-buttons">
+      <button class="btn-secondary" id="backToStep2">戻る</button>
+      <button class="btn-primary" id="toStep4">スケジュールを生成</button>
+    </div>
+  </section>
+
+  <!-- Step 4: スケジュール -->
+  <section id="step4" class="step-section">
+    <h2>おすすめ周遊ルート＆スケジュール</h2>
+    <div id="summary" class="summary"></div>
+    <div id="schedule"></div>
+    <div class="nav-buttons">
+      <button class="btn-secondary" id="backToStep3">戻る</button>
+      <button class="btn-secondary" id="restart">最初からやり直す</button>
+    </div>
+  </section>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
